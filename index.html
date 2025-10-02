@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ders Portalı</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #673ab7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .ders {
+      background-color: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .icerik {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #fdfdfd;
+      border-top: 1px solid #ccc;
+    }
+
+    .secim-btn {
+      margin: 10px 5px 0 0;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #673ab7;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .secim-btn:hover {
+      background-color: #5e35b1;
+    }
+
+    .bolum {
+      display: none;
+      margin-top: 15px;
+      padding: 10px;
+      border: 2px dashed #aaa;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    .oyunlar p,
+    .testler p {
+      margin: 8px 0;
+      color: #555;
+    }
+
+    .testler img {
+      max-width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📘 Ders Portalı</h1>
+  <p>Berat Kaylesiz</p>
+</header>
+
+<div class="container">
+
+  <div class="ders" onclick="toggleDers()">
+    <h2>📘 Türkçe</h2>
+
+    <div id="icerik" class="icerik">
+      <button class="secim-btn" onclick="showBolum(event, 'oyunlar')">🎮 Oyunlar</button>
+      <button class="secim-btn" onclick="showBolum(event, 'testler')">🧪 Testler</button>
+
+      <!-- Oyunlar Bölümü -->
+      <div id="oyunlar" class="bolum oyunlar">
+        <h3>🎮 Türkçe Oyunlar</h3>
+ <p><strong>2. Oyun:</strong> <button onclick="window.location.href='oyun1.html'" class="secim-btn">Oyun 1'e Git</button></p>
+
+</div>
+
+      <!-- Testler Bölümü -->
+      <div id="testler" class="bolum testler">
+       <button class="secim-btn" onclick="window.open('https://download1591.mediafire.com/92darvwdur9guZpLEzL382sVGo6yFkNy0x5xVPP2BGRcHftKIeoEAng3wdMBg8PVOECmQ99umo2L-d-lHxLJ2zLDyFp5Lpl5XKOuQ4R1O5YJtvna_81Ur9PD9qW8zpDoqUzUuEUCt7ujMNp2Y9S8y09aZPSTLe5N82j4xwGfD2I/zq1z0v6if1s2yv9/8.-sinif-indirilebilir-etkinlik-Fiilimsi-01-mb.pdf', '_blank')">Fiilimsiler Etkinliği Çıkartılabiir Testi</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleDers() {
+    const icerik = document.getElementById("icerik");
+    const bolumler = document.querySelectorAll(".bolum");
+    bolumler.forEach(b => b.style.display = "none"); // her seferinde kapat
+    icerik.style.display = (icerik.style.display === "block") ? "none" : "block";
+  }
+
+  function showBolum(event, tur) {
+    event.stopPropagation();
+    document.getElementById("oyunlar").style.display = "none";
+    document.getElementById("testler").style.display = "none";
+
+    document.getElementById(tur).style.display = "block";
+  }
+</script>
+
+</body>
+</html>
